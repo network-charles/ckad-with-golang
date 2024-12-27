@@ -1,0 +1,7 @@
+# Create a kind cluster
+
+# Create a go module
+go mod init lab-01
+
+# Install the kind client
+go get sigs.k8s.io/kind@latest
