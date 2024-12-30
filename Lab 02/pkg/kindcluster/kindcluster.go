@@ -1,4 +1,4 @@
-package main
+package kindcluster
 
 import (
 	"log"
@@ -13,7 +13,7 @@ import (
 var clusterName string = "kind"
 
 // Check if the cluster exists using 'kind get clusters'
-func cluster_exists() bool {
+func Cluster_exists() bool {
 	// Run the command: kind get clusters
 	cmd := exec.Command("kind", "get", "clusters")
 	output, err := cmd.Output()
@@ -32,7 +32,7 @@ func cluster_exists() bool {
 	return true
 }
 
-func delete_cluster() {
+func Delete_cluster() {
 	provider := cluster.NewProvider()
 
 	// get kubeconfig
@@ -49,7 +49,7 @@ func delete_cluster() {
 	log.Println("Kind cluster deleted successfully!")
 }
 
-func create_cluster() {
+func Create_cluster() {
 	// Initialize a new provider
 	// This accesses the NewProvider function in the cluster package
 	provider := cluster.NewProvider()
@@ -57,7 +57,7 @@ func create_cluster() {
 	// Name of the cluster
 	clusterName := "kind"
 
-	config_file := "./kind.yaml"
+	config_file := filepath.Join("pkg", "kindcluster", "kind.yaml")
 
 	// Create the cluster
 	err := provider.Create(clusterName, cluster.CreateWithConfigFile(config_file))
@@ -67,15 +67,4 @@ func create_cluster() {
 	}
 
 	log.Println("Kind cluster created successfully!")
-}
-
-func main() {
-	// First, check if the cluster exists
-	if cluster_exists() {
-		log.Println("Cluster exists. Deleting the cluster...")
-		delete_cluster()
-	} else {
-		log.Println("Cluster does not exist. Creating the cluster...")
-		create_cluster()
-	}
 }

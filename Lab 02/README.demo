@@ -1,0 +1,22 @@
+# Create a re-usable package for creating a cluster
+.
+└── pkg
+    └── kindcluster
+        ├── kind.yaml
+        └── kindcluster.go
+
+# Update the first character of each function name to use an uppercase
+Do this so the function can be exported since it is now used as a package.
+For example:
+func Create_cluster() {}
+
+# Create a go module
+go mod init lab-02
+
+# Import the package into the main function
+import (
+	"lab-02/pkg/kindcluster"
+)
+
+# Install the kind client
+go get sigs.k8s.io/kind@latest
