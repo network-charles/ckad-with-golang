@@ -1,0 +1,13 @@
+# Authenticate to your cluster using kubeconfig
+
+# Create a go module
+go mod init lab-03
+
+# Install the kind client
+go get sigs.k8s.io/kind@latest
+
+# Install the kubernetes client-go
+go get k8s.io/client-go/kubernetes
+
+# Install the kubernetes client-go cmd client
+go get k8s.io/client-go/tools/clientcmd

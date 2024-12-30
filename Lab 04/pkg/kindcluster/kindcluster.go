@@ -37,7 +37,7 @@ func Delete_cluster() {
 
 	// get kubeconfig
 	home, _ := os.UserHomeDir()
-	kubeConfigPath := filepath.Join(home, ".kube", "config")
+	kubeConfigPath := filepath.Join(home, ".kube/config")
 
 	// delete cluster
 	err := provider.Delete(clusterName, kubeConfigPath)

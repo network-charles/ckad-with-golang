@@ -5,3 +5,9 @@ Create a kind cluster
 
 # Lab 02
 Create a re-usable package for creating a cluster
+
+# Lab 03
+Authenticate to your cluster using kubeconfig
+
+# Lab 04
+Create a pod
